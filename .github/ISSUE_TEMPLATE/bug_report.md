@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report an issue with $(PROJECT_NAME)
+about: Report an issue with scripts
 title: "[BUG] Bug summed up in 1 sentence"
 labels: bug
 assignees: Wessel
@@ -16,7 +16,7 @@ assignees: Wessel
 ```
 
 **Further details:**
-- $(PROJECT_NAME) version:
+- script used:
 - Node.js version:
 - Operating system:
 
