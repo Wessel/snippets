@@ -73,7 +73,6 @@
   "breadcrumbs.symbolSortOrder": "name",
   "git.enableSmartCommit": true,
   "git.ignoreLimitWarning": true,
-  "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "[yaml]": {
     "editor.tabSize": 2,
@@ -140,5 +139,6 @@
       "strikethrough": false,
       "backgroundColor": "transparent"
     }
-  ]
+  ],
+  "python.pythonPath": "C:\\Users\\wesse\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
 }

@@ -21,10 +21,14 @@ module.exports = (target, source) => {
 
   for (let i = 1; i <= source.length; i++) {
     for (let j = 1; j <= target.length; j++) {
-      let cost = ((target.charAt(j - 1) === source.charAt(i - 1)) ? 0 : 1);
+      let cost = target.charAt(j - 1) === source.charAt(i - 1) ? 0 : 1;
       distance[i][j] = Math.min(Math.min(distance[i - 1][j] + 1, distance[i][j - 1] + 1) ,distance[i - 1][j - 1] + cost);
     }
   }
 
   return 1.0 - distance[source.length][target.length] / Math.max(source.length, target.length);
 };
+
+if (require.main === module) {
+  console.log(module.exports('exampel', 'example'));
+}
