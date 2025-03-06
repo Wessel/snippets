@@ -95,7 +95,7 @@ const defaultDiacriticsRemovalMap = [
  * normalize('éxamplé')
  * // => example
  */
-module.exports = (string) => {
+export function normalize(string: string): string {
   for (const change of defaultDiacriticsRemovalMap) string = string.replace(change.filter, change.base);
   return string;
 };

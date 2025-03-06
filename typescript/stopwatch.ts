@@ -1,12 +1,14 @@
-const { performance } = require('perf_hooks');
+export class Stopwatch {
+  digits: number;
+  _start: number;
+  _end: number | null;
 
-module.exports = class Stopwatch {
 	/**
 	 * Starts a new Stopwatch
    *
 	 * @param {number} [digits=2] The number of digits to appear after the decimal point
 	 */
-	constructor(digits = 2) {
+	constructor(digits: number = 2) {
 		this.digits = digits;
 		this._start = performance.now();
 		this._end = null;
@@ -18,7 +20,7 @@ module.exports = class Stopwatch {
    * @type {number}
 	 * @readonly
 	 */
-	get duration() {
+	get duration(): number {
 		return this._end ? this._end - this._start : performance.now() - this._start;
 	}
 
@@ -28,7 +30,7 @@ module.exports = class Stopwatch {
    * @type {boolean}
 	 * @readonly
 	 */
-	get running() {
+	get running(): boolean {
 		return Boolean(!this._end);
 	}
 
@@ -38,7 +40,7 @@ module.exports = class Stopwatch {
    * @returns {this} The stopwatch instance
 	 * @chainable
 	 */
-	restart() {
+	restart(): Stopwatch {
 		this._start = performance.now();
 		this._end = null;
 		return this;
@@ -50,7 +52,7 @@ module.exports = class Stopwatch {
    * @returns {this} The stopwatch instance
 	 * @chainable
 	 */
-	reset() {
+	reset(): Stopwatch {
 		this._start = performance.now();
 		this._end = this._start;
 		return this;
@@ -62,7 +64,7 @@ module.exports = class Stopwatch {
    * @returns {this} The stopwatch instance
 	 * @chainable
 	 */
-	start() {
+  start(): Stopwatch {
 		if (!this.running) {
 			this._start = performance.now() - this.duration;
 			this._end = null;
@@ -76,7 +78,7 @@ module.exports = class Stopwatch {
    * @returns {this} The stopwatch instance
 	 * @chainable
 	 */
-	stop() {
+	stop(): Stopwatch {
 		if (this.running) this._end = performance.now();
 		return this;
 	}
@@ -86,7 +88,7 @@ module.exports = class Stopwatch {
 	 *
    * @returns {string} The current time on the stopwatch in a human readable duration
 	 */
-	toString() {
+	toString(): string {
 		const time = this.duration;
 		if (time >= 1000) return `${(time / 1000).toFixed(this.digits)}s`;
 		if (time >= 1) return `${time.toFixed(this.digits)}ms`;

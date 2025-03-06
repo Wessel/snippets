@@ -9,7 +9,7 @@
  * levenshteinRatio('exampel', 'example')
  * // => 0.7142857142857143
  */
-module.exports = (target, source) => {
+export function levenshteinRatio(target: string, source:string): number {
   if (source === null || target === null || source.length === 0 || target.length === 0) return 0.0;
   if (source === target) return 1.0;
 
@@ -28,7 +28,3 @@ module.exports = (target, source) => {
 
   return 1.0 - distance[source.length][target.length] / Math.max(source.length, target.length);
 };
-
-if (require.main === module) {
-  console.log(module.exports('exampel', 'example'));
-}
