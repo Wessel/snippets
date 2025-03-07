@@ -31,4 +31,5 @@ def levenshteinRatio(target: str, source: str) -> float:
   return (1.0 - distance[len_source - 1][len_target - 1] / max(len_source, len_target))
 
 if __name__ == '__main__':
+  print(levenshteinRatio.__doc__)
   print(levenshteinRatio('example', 'exampel'))
